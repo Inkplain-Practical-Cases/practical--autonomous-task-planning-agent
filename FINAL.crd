@@ -1,7 +1,7 @@
 {
   "format": "inkplain-crd",
   "version": "1.0",
-  "name": "Autonomous Task Planning Agent STEP-6",
+  "name": "Autonomous Task Planning Agent FINAL",
   "flows": [
     {
       "id": "plan",
@@ -9,11 +9,11 @@
     }
   ],
   "step": {
-    "no": 6,
+    "no": "final",
     "of": 6,
-    "title": "Verify termination and failure recovery",
-    "branch": "step-06-verify-termination-and-failure-recovery",
-    "previous": "step-05-gate-privileged-actions-and-bound-retrie",
+    "title": "Final cumulative implementation",
+    "branch": "main",
+    "previous": "step-06-verify-termination-and-failure-recovery",
     "removed": []
   },
   "components": [
@@ -507,7 +507,7 @@
       "attributes": {
         "step_note": "STEP-6"
       },
-      "step_change": "added"
+      "step_change": "unchanged"
     },
     {
       "id": "be.service_failure_fixture",
@@ -536,7 +536,7 @@
       "attributes": {
         "step_note": "STEP-6"
       },
-      "step_change": "added"
+      "step_change": "unchanged"
     }
   ],
   "dependencies": [],
