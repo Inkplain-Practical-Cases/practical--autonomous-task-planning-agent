@@ -1,0 +1,46 @@
+{
+  "practical_case": {
+    "id": "bQXfVHckW5ykaMLBP3WR",
+    "slug": "autonomous-task-planning-agent",
+    "name": "Autonomous Task Planning Agent"
+  },
+  "current": "inkp",
+  "stages": {
+    "intro": {
+      "status": "done",
+      "summary": "Seven detailed Introduction sections and HTML data-flow diagram verified; seven real Junior FDE skill links at 50%. Reused an existing 400x250-named nature cover from Media Library (not a unique newly generated image).",
+      "outputs": {
+        "intro_sections": 7,
+        "cover_pending": false,
+        "portal_url": "/practical-case/autonomous-task-planning-agent",
+        "profile": "forward-deployed-engineering",
+        "level": "junior",
+        "skills_linked": 7,
+        "cover_reused": true
+      },
+      "started_at": "2026-10-10T08:05:36.553Z",
+      "finished_at": "2026-10-10T08:16:08.505Z",
+      "updated_by": "api-key:for-chatgpt-test-2"
+    },
+    "repo": {
+      "status": "done",
+      "summary": "Six cumulative STEP branches and final main authored with source, tests, CRD and teaching notes; GitHub Actions verified success for all 6 steps plus main (7/7).",
+      "started_at": "2026-10-10T08:16:28.624Z",
+      "finished_at": "2026-10-10T11:49:13.755Z",
+      "updated_by": "api-key:for-chatgpt-test-2",
+      "outputs": {
+        "repo_url": "https://github.com/Inkplain-Practical-Cases/practical--autonomous-task-planning-agent",
+        "steps_authored": 2,
+        "steps_required": 6,
+        "ci_verified": true,
+        "local_reconstructed_pytest_passed": 8,
+        "steps": 6,
+        "step_branches": 6,
+        "ci_jobs_success": 7,
+        "ci_jobs_total": 7,
+        "final_main_commit": "b41463aa62f1a50ccd0d45edec4faa691644b4e6"
+      }
+    }
+  },
+  "updated_at": "2026-10-10T11:49:13.755Z"
+}
