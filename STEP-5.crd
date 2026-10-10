@@ -399,7 +399,7 @@
       "kind": "function",
       "side": "backend",
       "layer": "service",
-      "description": "Commit every task transition before scheduling its dependents.",
+      "description": "Execute only dependency-ready tasks, enforce reviewer approval for privileged actions, persist evidence after each attempt.",
       "flows": [
         "plan"
       ],
@@ -418,9 +418,9 @@
       "operations": [],
       "outputs": [],
       "attributes": {
-        "step_note": "STEP-4"
+        "step_note": "STEP-5 adds approval enforcement"
       },
-      "step_change": "unchanged"
+      "step_change": "changed"
     },
     {
       "id": "be.service_approval_gate",
@@ -479,6 +479,47 @@
         "step_note": "STEP-5"
       },
       "step_change": "added"
+    },
+    {
+      "id": "be.service_ready_tasks",
+      "name": "service_ready_tasks",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Return only pending tasks whose every dependency has succeeded",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/services/service_ready_tasks.py",
+        "symbol": "service_ready_tasks",
+        "lines": [
+          1,
+          12
+        ]
+      },
+      "owner": "feature_planning",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "workflow",
+          "name": "workflow",
+          "description": "Versioned workflow snapshot"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "ready",
+          "name": "ready tasks",
+          "description": "Safe pending task set"
+        }
+      ],
+      "attributes": {
+        "step_note": "Introduced STEP-4"
+      },
+      "step_change": "unchanged"
     }
   ],
   "dependencies": [],
