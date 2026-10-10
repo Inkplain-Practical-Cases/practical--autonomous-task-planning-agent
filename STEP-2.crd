@@ -1,0 +1,290 @@
+{
+  "format": "inkplain-crd",
+  "version": "1.0",
+  "name": "Autonomous Task Planning Agent STEP-2",
+  "flows": [
+    {
+      "id": "plan",
+      "name": "Draft dependency graph"
+    }
+  ],
+  "step": {
+    "no": 2,
+    "of": 6,
+    "title": "Decompose goal into dependency graph",
+    "branch": "step-02-decompose-goal-into-dependency-graph",
+    "previous": "step-01-define-typed-goals-and-task-dependencies",
+    "removed": [
+      "be.provider_seed_task"
+    ]
+  },
+  "components": [
+    {
+      "id": "be.receive_goal",
+      "name": "receive_goal",
+      "kind": "function",
+      "side": "backend",
+      "layer": "door",
+      "description": "receive_goal provides a bounded planning operation.",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/router.py",
+        "symbol": "receive_goal",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_planning",
+      "component_reason": "Independently testable function",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "request",
+          "description": "Typed planning input"
+        }
+      ],
+      "validations": [],
+      "operations": [
+        {
+          "id": "op",
+          "title": "handle_plan",
+          "origin": "imported",
+          "description": "Call handle_plan",
+          "show": true,
+          "calls": {
+            "component": "be.handle_plan",
+            "type": "call",
+            "label": "delegates",
+            "evidence": "app/features/planning/router.py"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "Typed result or error"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-2"
+      },
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.handle_plan",
+      "name": "handle_plan",
+      "kind": "function",
+      "side": "backend",
+      "layer": "handler",
+      "description": "handle_plan provides a bounded planning operation.",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/handlers/handle_plan.py",
+        "symbol": "handle_plan",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_planning",
+      "component_reason": "Independently testable function",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "request",
+          "description": "Typed planning input"
+        }
+      ],
+      "validations": [],
+      "operations": [
+        {
+          "id": "op",
+          "title": "service_build_plan",
+          "origin": "imported",
+          "description": "Call service_build_plan",
+          "show": true,
+          "calls": {
+            "component": "be.service_build_plan",
+            "type": "call",
+            "label": "delegates",
+            "evidence": "app/features/planning/handlers/handle_plan.py"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "Typed result or error"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-2"
+      },
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.service_build_plan",
+      "name": "service_build_plan",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "service_build_plan provides a bounded planning operation.",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/services/service_build_plan.py",
+        "symbol": "service_build_plan",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_planning",
+      "component_reason": "Independently testable function",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "request",
+          "description": "Typed planning input"
+        }
+      ],
+      "validations": [],
+      "operations": [
+        {
+          "id": "op",
+          "title": "provider_decompose_tasks",
+          "origin": "imported",
+          "description": "Call provider_decompose_tasks",
+          "show": true,
+          "calls": {
+            "component": "be.provider_decompose_tasks",
+            "type": "call",
+            "label": "delegates",
+            "evidence": "app/features/planning/services/service_build_plan.py"
+          }
+        },
+        {
+          "id": "op2",
+          "title": "service_validate_dag",
+          "origin": "imported",
+          "description": "Validate DAG before returning",
+          "show": true,
+          "calls": {
+            "component": "be.service_validate_dag",
+            "type": "call",
+            "label": "validates",
+            "evidence": "app/features/planning/services/service_build_plan.py"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "Typed result or error"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-2"
+      },
+      "step_change": "changed"
+    },
+    {
+      "id": "be.provider_decompose_tasks",
+      "name": "provider_decompose_tasks",
+      "kind": "function",
+      "side": "backend",
+      "layer": "provider",
+      "description": "provider_decompose_tasks provides a bounded planning operation.",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/providers/provider_decompose_tasks.py",
+        "symbol": "provider_decompose_tasks",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_planning",
+      "component_reason": "Independently testable function",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "request",
+          "description": "Typed planning input"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "Typed result or error"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-2"
+      },
+      "step_change": "added"
+    },
+    {
+      "id": "be.service_validate_dag",
+      "name": "service_validate_dag",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "service_validate_dag provides a bounded planning operation.",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/services/service_validate_dag.py",
+        "symbol": "service_validate_dag",
+        "lines": [
+          1,
+          40
+        ]
+      },
+      "owner": "feature_planning",
+      "component_reason": "Independently testable function",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "request",
+          "description": "Typed planning input"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "Typed result or error"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-2"
+      },
+      "step_change": "added"
+    }
+  ],
+  "dependencies": [],
+  "unresolved": []
+}
