@@ -1,7 +1,7 @@
 {
   "format": "inkplain-crd",
   "version": "1.0",
-  "name": "Autonomous Task Planning Agent STEP-2",
+  "name": "Autonomous Task Planning Agent STEP-3",
   "flows": [
     {
       "id": "plan",
@@ -9,14 +9,12 @@
     }
   ],
   "step": {
-    "no": 2,
+    "no": 3,
     "of": 6,
-    "title": "Decompose goal into dependency graph",
-    "branch": "step-02-decompose-goal-into-dependency-graph",
-    "previous": "step-01-define-typed-goals-and-task-dependencies",
-    "removed": [
-      "be.provider_seed_task"
-    ]
+    "title": "Persist workflow state and audit events",
+    "branch": "step-03-persist-workflow-state-and-audit-events",
+    "previous": "step-02-decompose-goal-into-dependency-graph",
+    "removed": []
   },
   "components": [
     {
@@ -198,7 +196,7 @@
       "attributes": {
         "step_note": "STEP-2"
       },
-      "step_change": "changed"
+      "step_change": "unchanged"
     },
     {
       "id": "be.provider_decompose_tasks",
@@ -240,7 +238,7 @@
       "attributes": {
         "step_note": "STEP-2"
       },
-      "step_change": "added"
+      "step_change": "unchanged"
     },
     {
       "id": "be.service_validate_dag",
@@ -281,6 +279,88 @@
       ],
       "attributes": {
         "step_note": "STEP-2"
+      },
+      "step_change": "unchanged"
+    },
+    {
+      "id": "be.service_start_workflow",
+      "name": "service_start_workflow",
+      "kind": "function",
+      "side": "backend",
+      "layer": "service",
+      "description": "Create or read a versioned workflow snapshot and initial audit entry",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/services/service_start_workflow.py",
+        "symbol": "service_start_workflow",
+        "lines": [
+          1,
+          80
+        ]
+      },
+      "owner": "feature_planning",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "workflow",
+          "description": "Typed workflow input"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "State or decision"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-3"
+      },
+      "step_change": "added"
+    },
+    {
+      "id": "be.provider_state_store",
+      "name": "provider_state_store",
+      "kind": "function",
+      "side": "backend",
+      "layer": "provider",
+      "description": "Atomically persist and replay JSON workflow state with version checks",
+      "flows": [
+        "plan"
+      ],
+      "source": {
+        "file": "app/features/planning/providers/provider_state_store.py",
+        "symbol": "provider_state_store",
+        "lines": [
+          1,
+          80
+        ]
+      },
+      "owner": "feature_planning",
+      "status": "observed",
+      "inputs": [
+        {
+          "id": "in",
+          "name": "workflow",
+          "description": "Typed workflow input"
+        }
+      ],
+      "validations": [],
+      "operations": [],
+      "outputs": [
+        {
+          "id": "out",
+          "name": "result",
+          "description": "State or decision"
+        }
+      ],
+      "attributes": {
+        "step_note": "STEP-3"
       },
       "step_change": "added"
     }
