@@ -1,18 +1,13 @@
 # Autonomous Task Planning Agent
 
-Build a dependency-aware internal operations planner that validates goals, decomposes bounded work, schedules ready tasks, persists execution state, requests human approval for privileged actions and terminates deterministically. Six cumulative Python/FastAPI stages use safe offline tool fixtures and failure-injection tests.
+Six cumulative, independently runnable Python/FastAPI learning steps. This branch is STEP-1: typed goal intake and bounded draft task contract; it **does not** execute tools or create a dependency DAG yet.
 
-An Inkplain practical case: a real project built step by step.
+## Run
 
-## How this repository works
+`python -m pip install -r requirements.txt`
 
-Every step of the lesson has its own branch, and each one contains all steps up to it:
+`python -m pytest -q`
 
-```bash
-git clone https://github.com/Inkplain-Practical-Cases/practical--autonomous-task-planning-agent.git
-cd practical--autonomous-task-planning-agent
-git branch -r            # list the step branches
-git checkout step-01-…   # code after step 1
-```
+`uvicorn app.main:app --reload`
 
-`main` holds the final, complete version.
+Synthetic fixture only. No secrets or real external services.
