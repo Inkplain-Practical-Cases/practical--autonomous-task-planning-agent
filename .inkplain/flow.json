@@ -4,7 +4,7 @@
     "slug": "autonomous-task-planning-agent",
     "name": "Autonomous Task Planning Agent"
   },
-  "current": "content",
+  "current": "done",
   "stages": {
     "intro": {
       "status": "done",
@@ -54,7 +54,23 @@
       "started_at": "2026-10-10T11:49:17.460Z",
       "finished_at": "2026-10-10T11:49:17.460Z",
       "updated_by": "api-key:for-chatgpt-test-2"
+    },
+    "content": {
+      "status": "done",
+      "summary": "8 active portal categories and 45 lessons read-back verified: Overview 18, six step groups of four, Conclusion 3. STEP lessons embed INKP, CRD and source links; structural QA complete.",
+      "outputs": {
+        "portal_url": "/practical-case/autonomous-task-planning-agent",
+        "categories": 8,
+        "items": 45,
+        "overview": 18,
+        "step_items": 24,
+        "conclusion": 3,
+        "structural_qa": true
+      },
+      "started_at": "2026-10-10T11:49:21.712Z",
+      "finished_at": "2026-10-10T11:49:21.712Z",
+      "updated_by": "api-key:for-chatgpt-test-2"
     }
   },
-  "updated_at": "2026-10-10T11:49:17.460Z"
+  "updated_at": "2026-10-10T11:49:21.712Z"
 }
