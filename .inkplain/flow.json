@@ -43,13 +43,22 @@
     },
     "inkp": {
       "status": "done",
-      "summary": "Six ordered INKP tabs and 52 linked Process Executor documents verified; zero missing linked documents. FINAL.crd reflects 14 code-backed components.",
+      "summary": "Source-derived durable local JSON workflow schemas for STEP-3 to STEP-6 committed; four ERD entity-table diagrams added after flow tabs and MCP read-back verified.",
       "outputs": {
         "inkp_path": "autonomous-task-planning-agent.inkp",
         "inkp_url": "https://github.com/Inkplain-Practical-Cases/practical--autonomous-task-planning-agent/blob/main/autonomous-task-planning-agent.inkp",
         "tabs": 6,
         "linked_documents": 52,
-        "missing_links": 0
+        "missing_links": 0,
+        "erd_steps": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "erd_diagrams": 4,
+        "erd_final_file": "FINAL.erd",
+        "erd_readback": true
       },
       "started_at": "2026-10-10T11:49:17.460Z",
       "finished_at": "2026-10-10T11:49:17.460Z",
@@ -72,5 +81,5 @@
       "updated_by": "api-key:for-chatgpt-test-2"
     }
   },
-  "updated_at": "2026-10-10T11:49:21.712Z"
+  "updated_at": "2026-10-13T15:09:12.164Z"
 }
