@@ -12,3 +12,6 @@ uvicorn app.main:app --reload
 
 ## Verify
 Inspect the STEP-3.crd dependency map, execute the tests, and compare recorded status with actual evidence. The project uses deterministic local fixtures; no real business system is called.
+
+## Database (Entity) Relations
+This STEP persists one `workflows` JSON document per workflow through `StateStore` (`app/features/planning/providers/provider_state_store.py`). The `tasks`, `audit` and, from STEP-5, `approvals` fields are embedded inside the workflow document, so there are no independent foreign-key relations. The file `STEP-3.erd` is generated from source and visualized in the `STEP-3-ERD` Simulator tab.

@@ -1,0 +1,54 @@
+{
+  "erd_version": 1,
+  "name": "autonomous-task-planning-agent",
+  "step": 3,
+  "engine": "filesystem-json",
+  "generated_from": [
+    "app/features/planning/providers/provider_state_store.py",
+    "app/features/planning/services/service_start_workflow.py"
+  ],
+  "entities": [
+    {
+      "id": "workflows",
+      "name": "workflows",
+      "kind": "collection",
+      "step_change": "added",
+      "description": "One durable JSON file per workflow in the configured StateStore directory; tasks, audit events and approvals are embedded rather than separate collections.",
+      "source": "app/features/planning/providers/provider_state_store.py:StateStore.save",
+      "fields": [
+        {
+          "name": "workflow_id",
+          "type": "str",
+          "key": "PK",
+          "description": "Idempotency-aware workflow identity; used as JSON filename"
+        },
+        {
+          "name": "tenant_id",
+          "type": "str",
+          "description": "Tenant owner of workflow"
+        },
+        {
+          "name": "goal",
+          "type": "str",
+          "description": "Validated user goal"
+        },
+        {
+          "name": "tasks",
+          "type": "array<object>",
+          "description": "Embedded task records (task_id, depends_on, state and attempts)"
+        },
+        {
+          "name": "audit",
+          "type": "array<object>",
+          "description": "Embedded ordered audit events, each with sequence and event"
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "description": "Monotonic version used to reject stale writes"
+        }
+      ]
+    }
+  ],
+  "relations": []
+}
