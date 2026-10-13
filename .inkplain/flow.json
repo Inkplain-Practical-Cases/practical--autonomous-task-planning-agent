@@ -66,7 +66,7 @@
     },
     "content": {
       "status": "done",
-      "summary": "8 active portal categories and 45 lessons read-back verified: Overview 18, six step groups of four, Conclusion 3. STEP lessons embed INKP, CRD and source links; structural QA complete.",
+      "summary": "Four source-backed Database (Entity) Relations lessons created for STEP-3–6, ordered second after System design; portal sidebar read-back 5/5 items for each ERD step.",
       "outputs": {
         "portal_url": "/practical-case/autonomous-task-planning-agent",
         "categories": 8,
@@ -74,12 +74,22 @@
         "overview": 18,
         "step_items": 24,
         "conclusion": 3,
-        "structural_qa": true
+        "structural_qa": true,
+        "erd_applicable_steps": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "erd_lessons_created": 4,
+        "erd_item_title": "Database (Entity) Relations",
+        "erd_portal_readback": true,
+        "erd_audit_complete": true
       },
       "started_at": "2026-10-10T11:49:21.712Z",
       "finished_at": "2026-10-10T11:49:21.712Z",
       "updated_by": "api-key:for-chatgpt-test-2"
     }
   },
-  "updated_at": "2026-10-13T15:09:12.164Z"
+  "updated_at": "2026-10-13T15:09:23.235Z"
 }
